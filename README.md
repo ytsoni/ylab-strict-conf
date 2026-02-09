@@ -1,10 +1,10 @@
 <div align="center">
 
-# 🛡️ ylab-env-guard
+# 🛡️ strict-conf
 
 **Type-safe, validated environment variables that fail fast.**
 
-[![npm version](https://img.shields.io/npm/v/ylab-env-guard?style=flat-square)](https://www.npmjs.com/package/ylab-env-guard)
+[![npm version](https://img.shields.io/npm/v/strict-conf?style=flat-square)](https://www.npmjs.com/package/strict-conf)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/ytsoni/ylab-strict-conf/ci.yml?branch=main&style=flat-square)](https://github.com/ytsoni/ylab-strict-conf/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074C1.svg?style=flat-square&logo=typescript&logoColor=white)](http://www.typescriptlang.org/)
@@ -12,7 +12,7 @@
 
 </div>
 
-Type-safe environment variable management for Node.js applications. `ylab-env-guard` combines the power of [Zod](https://github.com/colinhacks/zod) schema validation with [dotenv](https://github.com/motdotla/dotenv) loading to ensure your app crashes immediately and descriptively if its configuration is invalid.
+Type-safe environment variable management for Node.js applications. `strict-conf` combines the power of [Zod](https://github.com/colinhacks/zod) schema validation with [dotenv](https://github.com/motdotla/dotenv) loading to ensure your app crashes immediately and descriptively if its configuration is invalid.
 
 ## Features
 
@@ -25,11 +25,11 @@ Type-safe environment variable management for Node.js applications. `ylab-env-gu
 ## Installation
 
 ```bash
-npm install ylab-env-guard zod
+npm install strict-conf zod
 # or
-yarn add ylab-env-guard zod
+yarn add strict-conf zod
 # or
-pnpm add ylab-env-guard zod
+pnpm add strict-conf zod
 ```
 
 ## Usage
@@ -37,7 +37,7 @@ pnpm add ylab-env-guard zod
 Create a configuration file (e.g., `src/config.ts`) to define your environment schema.
 
 ```typescript
-import { createConfig } from "ylab-env-guard";
+import { createConfig } from "strict-conf";
 import { z } from "zod";
 
 // Define your schema using Zod
@@ -66,7 +66,7 @@ console.log(`Server starting on port ${config.PORT}`);
 
 ### Example Failure Output
 
-If you start your app with missing or invalid variables, `ylab-env-guard` prints a helpful message and exits:
+If you start your app with missing or invalid variables, `strict-conf` prints a helpful message and exits:
 
 ```text
   ERROR  Environment validation failed
@@ -80,9 +80,9 @@ If you start your app with missing or invalid variables, `ylab-env-guard` prints
 
 ## Why use this?
 
-Standard `dotenv` loads strings into process.env, but it leaves you guessing about the types and presence of variables. `ylab-env-guard` solves this by guaranteeing strict types and safe configuration.
+Standard `dotenv` loads strings into process.env, but it leaves you guessing about the types and presence of variables. `strict-conf` solves this by guaranteeing strict types and safe configuration.
 
-| Feature | Standard `dotenv` | `ylab-env-guard` |
+| Feature | Standard `dotenv` | `strict-conf` |
 | :--- | :---: | :---: |
 | **.env File Support** | ✅ | ✅ |
 | **Type Safety** | ❌ `string` or `undefined` | ✅ Fully Typed Object |
