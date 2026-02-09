@@ -1,5 +1,5 @@
 {
-  "name": "ylab-env-guard",
+  "name": "env-guard",
   "version": "0.1.0",
   "description": "Validate and type environment variables with Zod.",
   "license": "MIT",
