@@ -81,15 +81,16 @@ Invalid variables:
 
 ## Why use this?
 
-Standard `dotenv` loads strings into `process.env`, but it leaves you guessing about the types and existence of variables.
+Standard `dotenv` loads strings into process.env, but it leaves you guessing about the types and presence of variables. `env-guard` solves this by guaranteeing strict types and safe configuration.
 
 | Feature | Standard `dotenv` | `env-guard` |
 | :--- | :---: | :---: |
-| **Loads .env file** | ✅ | ✅ |
-| **Type Safety** | ❌ (everything is `string | undefined`) | ✅ (fully typed object) |
-| **Validation** | ❌ (manual checks needed) | ✅ (Zod schema) |
-| **Coercion** | ❌ | ✅ (e.g. "3000" -> 3000) |
-| **Error Handling** | ❌ (app crashes randomly later) | ✅ (crashes immediately with report) |
+| **.env File Support** | ✅ | ✅ |
+| **Type Safety** | ❌ `string` or `undefined` | ✅ Fully Typed Object |
+| **Validation** | ❌ Manual checks required | ✅ Automatic (Zod Schema) |
+| **Data Coercion** | ❌ None (all strings) | ✅ Free (Strings → Numbers/Booleans) |
+| **Error Handling** | ❌ Crashes randomly at runtime | ✅ Fails immediately at startup |
+| **Developer Exp.** | ❌ Vague "undefined" errors | ✅ **Beautiful CLI Dashboard** |
 
 ## License
 
