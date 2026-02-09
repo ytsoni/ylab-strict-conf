@@ -1,8 +1,16 @@
-# env-guard
+<div align="center">
 
-[![npm version](https://img.shields.io/npm/v/env-guard.svg)](https://www.npmjs.com/package/env-guard)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue.svg)](https://www.typescriptlang.org/)
+# 🛡️ env-guard
+
+**Type-safe, validated environment variables that fail fast.**
+
+[![npm version](https://img.shields.io/npm/v/env-guard?style=flat-square)](https://www.npmjs.com/package/env-guard)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/ytsoni/ylab-strict-conf/ci.yml?branch=main&style=flat-square)](https://github.com/ytsoni/ylab-strict-conf/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074C1.svg?style=flat-square&logo=typescript&logoColor=white)](http://www.typescriptlang.org/)
+[![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
+</div>
 
 Type-safe environment variable management for Node.js applications. `env-guard` combines the power of [Zod](https://github.com/colinhacks/zod) schema validation with [dotenv](https://github.com/motdotla/dotenv) loading to ensure your app crashes immediately and descriptively if its configuration is invalid.
 
