@@ -1,6 +1,6 @@
 {
   "name": "strict-conf",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Validate and type environment variables with Zod.",
   "license": "MIT",
   "type": "module",
