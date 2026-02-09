@@ -27,29 +27,32 @@ const formatIssue = (issue: ZodIssue): EnvGuardIssue => {
 };
 
 export function reportEnvErrors(error: ZodError): EnvGuardError {
-  const issues = error.issues.map(formatIssue);
-  const missing = issues.filter((issue) => issue.kind === "missing");
-  const invalid = issues.filter((issue) => issue.kind === "invalid");
+  // Format and sort by key for deterministic output
+  const issues = error.issues
+    .map(formatIssue)
+    .sort((a, b) => a.key.localeCompare(b.key));
+
+  const maxKeyLength = issues.reduce((max, issue) => Math.max(max, issue.key.length), 0);
 
   const lines: string[] = [];
-  lines.push(pc.bold(pc.red("env-guard validation failed")));
+  
+  // Header
+  lines.push("");
+  lines.push(` ${pc.bgRed(pc.white(pc.bold(" ERROR ")))} ${pc.red("Environment validation failed")}`);
   lines.push("");
 
-  if (missing.length > 0) {
-    lines.push(pc.bold("Missing variables:"));
-    for (const issue of missing) {
-      lines.push(`  ${pc.red("-")} ${pc.cyan(issue.key)}`);
-    }
-    lines.push("");
+  // Error List
+  for (const issue of issues) {
+    const symbol = pc.red("✖");
+    const key = pc.bold(issue.key.padEnd(maxKeyLength));
+    const message = pc.dim(issue.message);
+    lines.push(` ${symbol}  ${key}  ${message}`);
   }
 
-  if (invalid.length > 0) {
-    lines.push(pc.bold("Invalid variables:"));
-    for (const issue of invalid) {
-      lines.push(`  ${pc.red("-")} ${pc.cyan(issue.key)} ${pc.dim(`(${issue.message})`)}`);
-    }
-    lines.push("");
-  }
+  // Footer
+  lines.push("");
+  lines.push(pc.dim("─".repeat(Math.max(50, maxKeyLength + 20))));
+  lines.push("");
 
   const summary = lines.join("\n");
   console.error(summary);
