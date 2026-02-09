@@ -20,7 +20,8 @@
   "scripts": {
     "build": "tsup src/index.ts --dts --format cjs,esm",
     "dev": "tsup src/index.ts --dts --format cjs,esm --watch",
-    "lint": "tsc -p tsconfig.json --noEmit"
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "tsup": "^8.0.1",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
   }
 }
